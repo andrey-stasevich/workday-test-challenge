@@ -9,7 +9,7 @@ s3_name = "astasevich-fake-product-assets"
 
 human_users = ["emma", "liam"]
 
-system_users = ["fake-product", "test"]
+system_users = ["fake-product"]
 
 vpc_config = [
   {
