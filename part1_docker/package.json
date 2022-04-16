@@ -1,0 +1,20 @@
+{
+  "name": "workday-test-challenge",
+  "version": "1.0.0",
+  "description": "Test challenge for Workday",
+  "main": "src/index.js",
+
+  "keywords": [
+    "workday",
+    "test",
+    "challenge"
+  ],
+  "author": "Andrey Stasevich andrey.stasevich@gmail.com",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.17.3"
+  }
+}

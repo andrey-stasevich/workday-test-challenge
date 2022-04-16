@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:${POSTGRES_VERSION}
+    init: true
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      workday-network-backend-1:
+        ipv4_address: 172.20.0.2
+  workday:
+    build: .
+    init: true
+    container_name: test-challenge
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      workday-network-frontend-1:
+        ipv4_address: 172.21.0.2
+      workday-network-backend-1:
+        ipv4_address: 172.20.0.3
+networks:
+  workday-network-backend-1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+  workday-network-frontend-1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
